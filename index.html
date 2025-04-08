@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secret Web 😎</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="backgroundTransition"></div>
+  <div id="passwordPrompt">
+    <h2>🔐 Nhập mật khẩu để vào</h2>
+    <input type="password" id="passwordInput" placeholder="Mật khẩu nè :3" onkeypress="checkEnter(event)">
+    <br>
+    <button onclick="checkPassword()">OK</button>
+    <p id="error" style="color: red; margin-top: 10px;"></p>
+    <div id="countdownTimer"></div>
+  </div>
+  
+  <div id="mainContent">
+    <h1 style="color: #ff6b6b;"><span class="heartbeat">💗</span> yêu K số 1 thế giới <span class="heartbeat">💗</span></h1>
+    <div id="secretContent">
+      <p class="glow">Đây là nội dung chỉ dành cho <b>người đặc biệt</b> của tao hehe</p>
+      
+      <div class="love-message">
+        <p id="specialMessage"></p>
+        <p id="dayCount"></p>
+        <!-- Tính năng 2: Đếm ngược đến ngày đặc biệt -->
+        <p id="countdown" style="font-size: 14px; margin-top: 10px;"></p>
+        <!-- Tính năng 7: Thời gian online -->
+        <p id="onlineTime" style="font-size: 12px; color: #666;"></p>
+      </div>
+  
+      <!-- Tính năng 1: Gửi lời nhắn cho K -->
+      <button id="sendMessageBtn" style="margin: 10px auto; display: block;">💌 Gửi lời nhắn cho K</button>
+      <div id="messageBox" style="display: none; margin: 10px auto; max-width: 300px;">
+        <textarea id="messageInput" placeholder="Viết gì đó cho K nè..." style="width: 100%; height: 80px; border-radius: 5px;"></textarea>
+        <button onclick="saveMessage()">Gửi</button>
+        <button onclick="closeMessageBox()">Đóng</button>
+      </div>
+      <div id="messageList" style="margin-top: 10px; font-size: 14px;"></div>
+  
+      <div class="video-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="switchTab(1)">Video 1</button>
+          <button class="tab-btn" onclick="switchTab(2)">Video 2</button>
+        </div>
+        <div class="tab-content">
+          <video loop id="video1" class="video-player" oncontextmenu="return false;">
+            <source src="K1.mp4" type="video/mp4">
+            Trình duyệt bạn không hỗ trợ video :(
+          </video>
+          <video loop id="video2" class="video-player" oncontextmenu="return false;" style="display: none;">
+            <source src="K2.mp4" type="video/mp4">
+            Trình duyệt bạn không hỗ trợ video :(
+          </video>
+          <button id="playPauseBtn" onclick="togglePlayPause()">▶️</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Tính năng 3: Nút tắt nhạc nhanh -->
+    <button id="muteBtn" style="position: fixed; bottom: 20px; right: 20px; background: #ff6b6b; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer;">🔊</button>
+  
+    <div class="hearts" id="hearts"></div>
+    <script src="index.js"></script>
+  </div>
+  
+  <div class="hearts" id="hearts"></div>
+  <script src="index.js"></script>
+</body>
+</html>

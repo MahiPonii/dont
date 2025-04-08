@@ -1,0 +1,375 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
+
+#backgroundTransition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  transition: background 2s ease;
+}
+
+.hearts, .click-heart {
+  pointer-events: none;
+}
+
+.click-heart {
+  position: absolute;
+  font-size: 30px;
+  color: #ff6b6b;
+  animation: fadeHeart 1.5s ease forwards;
+}
+
+@keyframes fadeHeart {
+  0% {
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+#passwordPrompt, #mainContent {
+  background-color: white;
+  max-width: 500px; /* Giới hạn chiều rộng tối đa */
+  width: 90%; /* Co giãn theo màn hình */
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+#mainContent {
+  display: none;
+}
+
+input[type="password"] {
+  padding: 10px;
+  width: 90%;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+input[type="password"]:focus {
+  border-color: #9face6;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #6a82fb;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5a72e8;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.heartbeat {
+  animation: heartBeat 1.5s infinite;
+  display: inline-block;
+  color: #ff6b6b;
+}
+
+#secretContent {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.glow {
+  text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b;
+  color: #ff3e3e;
+}
+
+.memory-wall {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.memory-box {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.memory-box:hover {
+  transform: scale(1.05);
+}
+
+.memory-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#countdownTimer {
+  font-size: 18px;
+  color: #ff6b6b;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.love-message {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #fff5f5;
+  border: 2px dashed #ff6b6b;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+
+  #passwordPrompt, #mainContent {
+    padding: 20px 15px;
+  }
+
+  input[type="password"] {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.video-tabs {
+  margin-top: 20px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab-btn {
+  padding: 8px 16px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.tab-btn:hover {
+  background-color: #ff8787;
+  color: white;
+}
+
+.video-player {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-player::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+.video-player::-webkit-media-controls-download-button {
+  display: none !important;
+}
+
+.video-player::-moz-range-thumb {
+}
+
+.video-player:not(:hover)::-webkit-media-controls {
+  opacity: 0;
+}
+.video-player:hover::-webkit-media-controls {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.sparkle {
+  animation: sparkleFade 1s ease forwards;
+}
+
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: scale(0.5); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+.video-overlay {
+  pointer-events: auto;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Tính năng 1: Gửi lời nhắn */
+#messageBox button {
+  margin: 5px;
+  padding: 5px 10px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#messageList {
+  max-height: 150px;
+  overflow-y: auto; /* Cuộn nếu nhiều tin nhắn */
+}
+
+/* Tính năng 9: Vuốt tab video */
+.tab-content {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-x; /* Hỗ trợ vuốt ngang trên mobile */
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  #mainContent h1 {
+    font-size: 1.4em;
+  }
+
+  .love-message p {
+    font-size: 12px;
+  }
+
+  #sendMessageBtn {
+    padding: 6px 12px;
+  }
+
+  #messageInput {
+    height: 60px;
+  }
+
+  .tab-btn {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  #playPauseBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .floating-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .mute-btn {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .theme-btn {
+    top: 15px;
+    right: 15px;
+  }
+}
